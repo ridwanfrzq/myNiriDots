@@ -1,0 +1,15 @@
+#!/bin/bash
+
+scheme=$1
+file="$HOME/.cache/wallpaper"
+wallpath=$(cut -d'=' -f2 "$file" | xargs)
+
+if [ $scheme = "dark" ]; then
+  echo "dark" > ~/.cache/scheme
+  matugen image "$wallpath" -m dark && gsettings set org.gnome.desktop.interface icon-theme "'Papirus-Dark'"  && sleep 0.5 && swayosd-client --custom-message "Dark Mode"
+elif [ $scheme = "light" ]; then
+  echo "light" > ~/.cache/scheme
+  matugen image "$wallpath" -m light && gsettings set org.gnome.desktop.interface icon-theme "'Papirus-Light'"  && sleep 0.5 && swayosd-client --custom-message "Light Mode"
+else
+  echo "Invalid argument"
+fi

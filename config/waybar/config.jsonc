@@ -1,0 +1,206 @@
+{
+  "layer": "top",
+  "position": "top",
+  "autohide": true,
+  "autohide-blocked": false,
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  /* === Modules Order === */
+  "modules-left": ["group/left1"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["group/right1"],
+  /* === Modules Left === */
+  "group/left1": {
+    "orientation": "horizontal",
+    "modules": ["custom/archicon", "clock"]
+  },
+  "custom/archicon": {
+    "format": "󰣇",
+    "on-click": "wlogout",
+    "tooltip": false
+  },
+  "custom/pacman": {
+    "format": "󰮯 {}",
+    "interval": 5,
+    "return-type": "json",
+    "exec": "~/.local/bin/pacman-updates.sh",
+    "on-click": "kitty -e sudo pacman -Syu",
+    "signal": 8
+  },
+  "clock": {
+    "format": "{:%I:%M %p - %d/%m/%y}",
+    "tooltip-format": "{calendar}",
+    "calendar": {
+      "mode": "month"
+    }
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": true,
+    "tooltip-format": "CPU Usage: {usage}%\nNúcleos: {cores}"
+  },
+  "memory": {
+    "format": "{}% 󰍛",
+    "tooltip": true,
+    "tooltip-format": "RAM Usage: {used} / {total} ({percentage}%)"
+  },
+  "disk": {
+    "format": "{percentage_free}% ",
+    "tooltip": true,
+    "tooltip-format": "Free Space: {free} / {total} ({percentage_free}%)"
+  },
+  /* === Modules Center === */
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "disable-scroll": true,
+    "all-outputs": true,
+    "persistent-workspaces": {
+      "*": 5
+    }
+  },
+
+  /* === Modules Right === */
+  "group/right1": {
+    "orientation": "horizontal",
+    "modules": [
+      "tray",
+      "group/audio",
+      "group/brightness",
+      "battery",
+      "custom/notification"
+    ]
+  },
+
+  "mpris": {
+    "format": "{player_icon} {artist} - {title}",
+    "format-paused": "{status_icon} {artist} - {title}",
+    "max-length": 30,
+    "interval": 2,
+    "player-icons": {
+      "default": "⏸",
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": "▶"
+    }
+    // "ignored-players": ["firefox"]
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 12,
+    "reverse-direction": true,
+    "show-passive-items": true
+  },
+  "group/audio": {
+    "orientation": "horizontal",
+    "modules": ["pulseaudio", "pulseaudio/slider", "pulseaudio#volume"],
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "not-power",
+      "transition-to-left": true,
+      "click-to-reveal": true
+    }
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    // "format-bluetooth":
+    "format-muted": "{icon}",
+    // "format-source":
+    // "format-source-muted":
+    "format-icons": {
+      "default": ["󰕾"],
+      "default-muted": "󰝟",
+      "headphone": "󰋋",
+      "headphone-muted": "󰟎",
+      "headset": "󰋎",
+      "headset-muted": "󰋐"
+    },
+    // "rotate":
+    // "states":
+    //"on-click": "pavucontrol -t 3",
+    "reverse-scrolling": true
+  },
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "rotate": 0,
+    "scroll-step": 1
+  },
+  "pulseaudio#volume": {
+    "min-length": 4,
+    "max-length": 4
+  },
+  "group/brightness": {
+    "orientation": "horizontal",
+    "modules": ["backlight", "backlight/slider", "backlight#percent"],
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "not-power",
+      "transition-to-left": true,
+      "click-to-reveal": true
+    }
+  },
+  "backlight": {
+    "format": "{icon}",
+    "format-icons": [""],
+    "reverse-scrolling": true,
+    "tooltip-format": "Brightness: {percent}%"
+  },
+  "backlight/slider": {
+    "min": 1,
+    "max": 100,
+    "rotate": 0,
+    "scroll-step": 1
+  },
+  "backlight#percent": {
+    "min-length": 4,
+    "max-length": 4
+  },
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": " ",
+    "format-ethernet": "{ifname} 󰈀",
+    "format-disconnected": " ",
+    "tooltip-format": " {ifname} via {gwaddr}",
+    "tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
+    "tooltip-format-wifi": "Connected to {essid}\n{ifname} {ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "hyprctl dispatch exec 'kitty --class popup-nmtui nmtui'",
+    "max-length": 50
+  },
+  "battery": {
+    "interval": 30,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "tooltip-format": "Battery at {capacity}%\n{timeTo}",
+    "format": "{icon}",
+    "format-charging": "{icon}<span foreground='yellow'><sup>󱐋</sup></span>",
+    "format-plugged": "󰂄",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "",
+      "none": "",
+      "dnd-notification": "",
+      "dnd-none": "",
+      "inhibited-notification": "",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  }
+}

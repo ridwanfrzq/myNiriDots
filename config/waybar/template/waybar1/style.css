@@ -1,0 +1,216 @@
+@import url("colors.css");
+
+/* -- Global rules -- */
+* {
+  border: none;
+  font-family: "FiraCode Nerd Font";
+  font-size: 15px;
+  /*font-weight: bold;*/
+  min-height: 0px;
+}
+
+window#waybar {
+  all: unset;
+}
+
+window#waybar.hidden {
+  opacity: 0;
+}
+
+/* - General rules for visible modules -- */
+#left1,
+#custom-pacman,
+#mpris,
+#right1 {
+  color: @on_background;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: none;
+}
+
+/* -- Specific styles -- */
+
+/* Modules left */
+
+#left1 {
+  margin-left: 7px;
+  background: alpha(@background, 0.6);
+  border: 1px solid alpha(@on_primary_container, 0.5);
+  border-radius: 8px;
+}
+
+#custom-archicon {
+  font-size: 17px;
+  padding-right: 17px;
+}
+
+#clock {
+  font-family: "SF Pro";
+  font-weight: bold;
+}
+
+#custom-pacman {
+  margin-left: 5px;
+  background: rgba(30, 30, 30, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  padding-right: 10px;
+}
+
+#disk {
+  padding-right: 15px;
+}
+
+/* Modules center */
+#workspaces {
+  background: alpha(@background, 0.6);
+  border: 1px solid alpha(@on_primary_container, 0.5);
+  border-radius: 8px;
+  margin: 6px 5px; /* ubah dari 6px 5px */
+}
+
+/* Semua button workspace */
+#workspaces button {
+  font-family: "SF Pro";
+  font-weight: bold;
+  color: @on_background;
+  background: transparent;
+  padding: 5px 8px; /* ruang dalam button */
+  min-width: 12px;
+  transition: all 0.2s ease-in-out;
+  margin: 0; /* hapus margin agar background container menutupi seluruh sisi */
+}
+
+/* Workspace aktif */
+#workspaces button.active {
+  background: @primary;
+  color: @on_primary;
+  min-width: 20px;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+}
+
+/* Modules right */
+
+#right1 {
+  margin-right: 7px;
+  background: alpha(@background, 0.6);
+  border: 1px solid alpha(@on_primary_container, 0.5);
+  border-radius: 8px;
+}
+
+#mpris {
+  margin-left: 5px;
+  background: alpha(@background, 0.6);
+  color: @on_background;
+  font-family: "SF Pro";
+  font-weight: bold;
+  border: 1px solid alpha(@on_primary_container, 0.5);
+  border-radius: 8px;
+  padding-right: 10px;
+}
+
+#tray {
+  color: rgb(235, 235, 235);
+  padding-right: 12px;
+}
+
+#tray menu {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#audio {
+  padding-left: 2px;
+  padding-right: 15px;
+}
+
+#brightness {
+  padding-right: 17px;
+}
+
+#pulseaudio,
+#backlight {
+  padding-right: 2px;
+}
+
+#pulseaudio.volume,
+#backlight.percent {
+  padding-left: 10px;
+}
+
+#pulseaudio-slider,
+#backlight-slider {
+  padding: 0;
+  margin: 0;
+  padding-left: 10px;
+}
+
+#backlight-slider slider,
+#pulseaudio-slider slider {
+  background: #a1bdce;
+  background-color: transparent;
+  box-shadow: none;
+  margin-right: 7px;
+}
+
+#backlight-slider trough,
+#pulseaudio-slider trough {
+  min-width: 90px;
+  min-height: 10px;
+  border-radius: 8px;
+  background: #343434;
+}
+
+#backlight-slider highlight,
+#pulseaudio-slider highlight {
+  border-radius: 8px;
+  background: @primary;
+}
+
+#network {
+  padding-top: 1px;
+  padding-right: 13px;
+}
+
+#battery {
+  padding-right: 13px;
+}
+
+#battery.warning {
+  color: rgb(200, 200, 0);
+}
+
+#battery.charging {
+  color: @on_background;
+  padding-top: 1px;
+  padding-right: 7px;
+}
+
+#battery.charging.warning {
+  color: @on_background;
+}
+
+#battery.critical {
+  color: rgb(225, 0, 0);
+}
+
+#battery.charging.critical {
+  color: @on_background;
+}
+
+#custom-notification {
+  padding-right: 8px;
+}
+
+tooltip {
+  background: alpha(@background, 0.6);
+}
+
+tooltip label {
+  color: @on_background;
+}

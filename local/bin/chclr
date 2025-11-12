@@ -1,0 +1,35 @@
+#!/bin/bash
+
+color="$1"
+scheme=$(cat "$HOME/.cache/scheme")
+file="$HOME/.cache/wallpaper"
+wallpath=$(cut -d'=' -f2 "$file" | xargs)
+wallpaper="$wallpath"
+
+if [ "$color" = "monochrome" ]; then
+  echo "monochrome" > "$HOME/.cache/color"
+  matugen color hex "#000000" -m "$scheme" -t scheme-monochrome
+  echo "$wallpaper" > "$HOME/.cache/wallpaper"
+elif [ "$color" = "red" ]; then
+  echo "red" > "$HOME/.cache/color"
+  matugen color hex "#d90d0d" -m "$scheme"
+  echo "$wallpaper" > "$HOME/.cache/wallpaper"
+elif [ "$color" = "blue" ]; then
+  echo "blue" > "$HOME/.cache/color"
+  matugen color hex "#030bff" -m "$scheme"
+  echo "$wallpaper" > "$HOME/.cache/wallpaper"
+elif [ "$color" = "cyan" ]; then
+  echo "cyan" > "$HOME/.cache/color"
+  matugen color hex "#03d9ff" -m "$scheme"
+  echo "$wallpaper" > "$HOME/.cache/wallpaper"
+elif [ "$color" = "yellow" ]; then
+  echo "yellow" > "$HOME/.cache/color"
+  matugen color hex "#f2ff03" -m "$scheme"
+  echo "$wallpaper" > "$HOME/.cache/wallpaper"
+elif [ "$color" = "green" ]; then
+  echo "yellow" > "$HOME/.cache/color"
+  matugen color hex "#03ff20" -m "$scheme"
+  echo "$wallpaper" > "$HOME/.cache/wallpaper"
+else
+  echo "Invalid argument"
+fi
