@@ -38,6 +38,7 @@ window#waybar.hidden {
 }
 
 #custom-ws {
+  color: @on_background;
   font-family: "SF Pro";
   font-weight: bold;
   margin: 0;
@@ -46,6 +47,7 @@ window#waybar.hidden {
 }
 
 #clock {
+  color: @on_background;
   font-family: "SF Pro";
   font-weight: bold;
 }
