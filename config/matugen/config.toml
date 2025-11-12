@@ -6,11 +6,6 @@ set = true
 command = "swww"
 arguments = ["img", "--transition-type", "any", "--transition-step", "255", "--transition-fps", "60"]
 
-[templates.hyprland]
-input_path = '~/.config/matugen/templates/hyprland-colors.conf'
-output_path = '~/.config/hypr/colors/matugen.conf'
-post_hook = 'hyprctl reload'
-
 [templates.wallpaper]
 input_path = '~/.config/matugen/templates/wallpaper.conf'
 output_path = '~/.cache/wallpaper'

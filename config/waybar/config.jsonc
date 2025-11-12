@@ -7,17 +7,16 @@
   "passthrough": false,
   "gtk-layer-shell": true,
   /* === Modules Order === */
-  "modules-left": ["group/left1"],
-  "modules-center": ["hyprland/workspaces"],
+  "modules-left": ["custom/ws", "niri/workspaces"],
+  "modules-center": ["clock"],
   "modules-right": ["group/right1"],
   /* === Modules Left === */
   "group/left1": {
     "orientation": "horizontal",
-    "modules": ["custom/archicon", "clock"]
+    "modules": ["clock"]
   },
-  "custom/archicon": {
-    "format": "󰣇",
-    "on-click": "wlogout",
+  "custom/ws": {
+    "format": "Workspace",
     "tooltip": false
   },
   "custom/pacman": {
@@ -29,7 +28,7 @@
     "signal": 8
   },
   "clock": {
-    "format": "{:%I:%M %p - %d/%m/%y}",
+    "format": "{:%I:%M %p}",
     "tooltip-format": "{calendar}",
     "calendar": {
       "mode": "month"
@@ -51,13 +50,9 @@
     "tooltip-format": "Free Space: {free} / {total} ({percentage_free}%)"
   },
   /* === Modules Center === */
-  "hyprland/workspaces": {
-    "format": "{id}",
-    "disable-scroll": true,
-    "all-outputs": true,
-    "persistent-workspaces": {
-      "*": 5
-    }
+  "niri/workspaces": {
+    "format": "{index}",
+    "current-only": true
   },
 
   /* === Modules Right === */

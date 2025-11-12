@@ -11,6 +11,7 @@
 
 window#waybar {
   all: unset;
+  background: alpha(@background, 0.8);
 }
 
 window#waybar.hidden {
@@ -19,8 +20,6 @@ window#waybar.hidden {
 
 /* - General rules for visible modules -- */
 #left1,
-#custom-pacman,
-#mpris,
 #right1 {
   color: @on_background;
   margin-top: 6px;
@@ -36,14 +35,12 @@ window#waybar.hidden {
 
 #left1 {
   margin-left: 7px;
-  background: alpha(@background, 0.6);
-  border: 1px solid alpha(@on_primary_container, 0.5);
-  border-radius: 8px;
 }
 
-#custom-archicon {
-  font-size: 17px;
-  padding-right: 17px;
+#custom-ws {
+  margin: 0;
+  padding: 0;
+  margin-left: 7px;
 }
 
 #clock {
@@ -51,68 +48,23 @@ window#waybar.hidden {
   font-weight: bold;
 }
 
-#custom-pacman {
-  margin-left: 5px;
-  background: rgba(30, 30, 30, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 8px;
-  padding-right: 10px;
-}
-
-#disk {
-  padding-right: 15px;
-}
-
-/* Modules center */
 #workspaces {
-  background: alpha(@background, 0.6);
-  border: 1px solid alpha(@on_primary_container, 0.5);
-  border-radius: 8px;
-  margin: 6px 5px; /* ubah dari 6px 5px */
+  padding: 0;
+  margin: 0;
 }
 
-/* Semua button workspace */
 #workspaces button {
   font-family: "SF Pro";
   font-weight: bold;
+  padding: 0;
+  margin: 0;
   color: @on_background;
-  background: transparent;
-  padding: 5px 8px; /* ruang dalam button */
-  min-width: 12px;
-  transition: all 0.2s ease-in-out;
-  margin: 0; /* hapus margin agar background container menutupi seluruh sisi */
-}
-
-/* Workspace aktif */
-#workspaces button.active {
-  background: @primary;
-  color: @on_primary;
-  min-width: 20px;
-}
-
-#workspaces button:hover {
-  box-shadow: inherit;
-  text-shadow: inherit;
 }
 
 /* Modules right */
 
 #right1 {
   margin-right: 7px;
-  background: alpha(@background, 0.6);
-  border: 1px solid alpha(@on_primary_container, 0.5);
-  border-radius: 8px;
-}
-
-#mpris {
-  margin-left: 5px;
-  background: alpha(@background, 0.6);
-  color: @on_background;
-  font-family: "SF Pro";
-  font-weight: bold;
-  border: 1px solid alpha(@on_primary_container, 0.5);
-  border-radius: 8px;
-  padding-right: 10px;
 }
 
 #tray {
