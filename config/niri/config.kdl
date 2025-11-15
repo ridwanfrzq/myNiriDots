@@ -55,6 +55,7 @@ output "eDP-1" {
 
 layout {
     gaps 3
+    background-color "transparent"
     center-focused-column "never"
     preset-column-widths {
         proportion 0.5
@@ -373,3 +374,7 @@ gestures {
 	}
 }
 
+layer-rule {
+    match namespace="swww-daemon"
+    place-within-backdrop true
+}
